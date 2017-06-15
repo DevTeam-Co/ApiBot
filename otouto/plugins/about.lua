@@ -16,7 +16,7 @@ about.command = 'about'
 about.doc = 'Returns information about the bot.'
 
 function about:init()
-    about.text = self.config.about_text .. '\nBased on [otouto](http://github.com/topkecleon/otouto) v'..bot.version..' by topkecleon.'
+    about.text = self.config.about_text .. '\nربات بر پایه[otouto](http://github.com/topkecleon/otouto) v'..bot.version..' نوشته شده است'
     about.triggers = utilities.triggers(self.info.username, self.config.cmd_pat)
         :t('about'):t('start').table
 end
