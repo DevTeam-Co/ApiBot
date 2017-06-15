@@ -256,10 +256,10 @@ function administration:get_targets(msg)
                         target.name = utilities.build_name(target.first_name, target.last_name)
                         table.insert(t, target)
                     else
-                        table.insert(t, { err = 'Sorry, I do not recognize that username ('..user..').' })
+                        table.insert(t, { err = 'من این ایکس کشو نمیشناسم 😐 ('..user..').' })
                     end
                 else
-                    table.insert(t, { err = 'Invalid username or ID ('..user..').' })
+                    table.insert(t, { err = 'اسکل آیدی یا یوزرش اچتباه 😐 ('..user..').' })
                 end
             end
             return t, reason
@@ -283,15 +283,15 @@ function administration:get_desc(chat_id)
     local group = self.database.administration.groups[tostring(chat_id)]
     local t = {}
     if group.link then
-        table.insert(t, '*Welcome to* [' .. group.name .. '](' .. group.link .. ')*!*')
+        table.insert(t, '_خوش آمدید به_ [' .. group.name .. '](' .. group.link .. ')*!*')
     else
-        table.insert(t, '*Welcome to ' .. group.name .. '!*')
+        table.insert(t, '_خوش آمدید به_ *' .. group.name .. '!*')
     end
     if group.motd then
-        table.insert(t, '*Message of the Day:*\n' .. group.motd)
+        table.insert(t, 'پیام امروز به این شرح است:\n' .. group.motd)
     end
     if #group.rules > 0 then
-        local rulelist = '*Rules:*\n'
+        local rulelist = '_قوانین گروه به این شرح است:_\n'
         for i = 1, #group.rules do
             rulelist = rulelist .. '*' .. i .. '.* ' .. group.rules[i] .. '\n'
         end
@@ -314,14 +314,14 @@ function administration:get_desc(chat_id)
         else
             s = 'Unknown `[' .. group.governor .. ']`'
         end
-        table.insert(t, '*Governor:* ' .. s)
+        table.insert(t, 'صاحب گروه ' .. s)
     end
     local modstring = ''
     for k,_ in pairs(group.mods) do
         modstring = modstring .. administration.mod_format(self, k)
     end
     if modstring ~= '' then
-        table.insert(t, '*Moderators:*\n' .. utilities.trim(modstring))
+        table.insert(t, '_لیست مدیران گروه_\n' .. utilities.trim(modstring))
     end
     table.insert(t, 'Run '..self.config.cmd_pat..'ahelp@' .. self.info.username .. ' for a list of commands.')
     return table.concat(t, '\n\n')
