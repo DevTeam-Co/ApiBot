@@ -2,9 +2,9 @@
 return {
 
     -- Your authorization token from the botfather. (string, put quotes)
-    bot_api_key = nil,
+    bot_api_key = '303320567:AAHfEE63LES07o68FIYt0Isex9wbfKucowA',
     -- Your Telegram ID (number).
-    admin = nil,
+    admin = 274807882,
     -- Two-letter language code.
     -- Fetches it from the system if available, or defaults to English.
     lang = os.getenv('LANG') and os.getenv('LANG'):sub(1,2) or 'en',
@@ -22,9 +22,8 @@ return {
     database_name = nil,
     -- The block of text returned by /start and /about..
     about_text = [[
-I am otouto, the plugin-wielding, multipurpose Telegram bot.
-
-Send /help to get started.
+سلام من اصغر هستم 😐
+    برای دیدن راهنما /help را بنویسید
     ]],
 
     errors = { -- Generic error messages.
